@@ -1,0 +1,8 @@
+accommodation\Application.class
+accommodation\config\kafka\KafkaProcessor.class
+accommodation\PolicyHandler.class
+accommodation\AbstractEvent$1.class
+accommodation\RoomConditionChanged.class
+accommodation\AbstractEvent.class
+accommodation\RoomInfoRepository.class
+accommodation\RoomInfo.class

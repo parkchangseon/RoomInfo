@@ -13,6 +13,17 @@ public class RoomInfo {
     private String roomType;
     private Integer roomQty;
     private String roomPrice;
+    private int reservationNumber;
+    private int paymentId;
+    private int paymentPrice;
+    private String paymentStatus;
+    private String reservationStatus;
+    private Integer reserveNo;
+    private Integer roomNo;
+    private String customerName;
+    private Integer customerId;
+    private String reserveStatus;
+    private Integer reservePrice;
 
     public Integer getRoomNumber() {
         return roomNumber;
@@ -59,5 +70,93 @@ public class RoomInfo {
 
     public void setRoomPrice(String roomPrice) {
         this.roomPrice = roomPrice;
+    }
+
+    public int getReservationNumber() {
+        return reservationNumber;
+    }
+
+    public void setReservationNumber(int reservationNumber) {
+        this.reservationNumber = reservationNumber;
+    }
+
+    public int getPaymentId() {
+        return paymentId;
+    }
+
+    public void setPaymentId(int paymentId) {
+        this.paymentId = paymentId;
+    }
+
+    public int getPaymentPrice() {
+        return paymentPrice;
+    }
+
+    public void setPaymentPrice(int paymentPrice) {
+        this.paymentPrice = paymentPrice;
+    }
+
+    public String getReservationStatus() {
+        return reservationStatus;
+    }
+
+    public void setReservationStatus(String reservationStatus) {
+        this.reservationStatus = reservationStatus;
+    }
+
+    public Integer getReserveNo() {
+        return reserveNo;
+    }
+
+    public void setReserveNo(Integer reserveNo) {
+        this.reserveNo = reserveNo;
+    }
+
+    public Integer getRoomNo() {
+        return roomNo;
+    }
+
+    public void setRoomNo(Integer roomNo) {
+        this.roomNo = roomNo;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public Integer getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(Integer customerId) {
+        this.customerId = customerId;
+    }
+
+    public String getReserveStatus() {
+        return reserveStatus;
+    }
+
+    public void setReserveStatus(String reserveStatus) {
+        this.reserveStatus = reserveStatus;
+    }
+
+    public String getPaymentStatus() {
+        return paymentStatus;
+    }
+
+    public void setPaymentStatus(String paymentStatus) {
+        this.paymentStatus = paymentStatus;
+    }
+
+    public Integer getReservePrice() {
+        return reservePrice;
+    }
+
+    public void setReservePrice(Integer reservePrice) {
+        this.reservePrice = reservePrice;
     }
 }

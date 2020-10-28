@@ -1,11 +1,12 @@
 accommodation\Application.class
-accommodation\config\kafka\KafkaProcessor.class
 accommodation\PolicyHandler.class
 accommodation\AbstractEvent$1.class
 accommodation\CheckedOut.class
+accommodation\PromotionSaved.class
+accommodation\AbstractEvent.class
+accommodation\RoomInfoRepository.class
+accommodation\config\kafka\KafkaProcessor.class
 accommodation\PaymentCompleted.class
 accommodation\RoomConditionChanged.class
 accommodation\Reserved.class
-accommodation\AbstractEvent.class
-accommodation\RoomInfoRepository.class
 accommodation\RoomInfo.class

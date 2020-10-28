@@ -1,13 +1,6 @@
 package accommodation;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name="RoomInfo_table")
-public class RoomInfo {
-
-    @Id @GeneratedValue
-    private Integer roomNumber;
+public class PromotionSaved extends AbstractEvent{
     private int paymentId;
     private int paymentPrice;
     private String paymentStatus;
@@ -16,12 +9,8 @@ public class RoomInfo {
     private int point;
     private String reserveStatus;
 
-    public Integer getRoomNumber() {
-        return roomNumber;
-    }
-
-    public void setRoomNumber(Integer roomNumber) {
-        this.roomNumber = roomNumber;
+    public PromotionSaved(){
+        super();
     }
 
     public int getPaymentId() {
@@ -40,12 +29,12 @@ public class RoomInfo {
         this.paymentPrice = paymentPrice;
     }
 
-    public String getPaymentStatus() {
-        return paymentStatus;
-    }
-
     public void setPaymentStatus(String paymentStatus) {
         this.paymentStatus = paymentStatus;
+    }
+
+    public String getPaymentStatus() {
+        return paymentStatus;
     }
 
     public String getService() {

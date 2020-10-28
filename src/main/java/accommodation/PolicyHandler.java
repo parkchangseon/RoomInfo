@@ -13,66 +13,18 @@ public class PolicyHandler{
     RoomInfoRepository roomInfoRepository;
 
     @StreamListener(KafkaProcessor.INPUT)
-    public void wheneverSave_RoomInfo(@Payload RoomConditionChanged roomConditionChanged){
-
-        if(roomConditionChanged.isMe()){
-            System.out.println("##### listener 객실정보저장 : " + roomConditionChanged.toJson());
-            RoomInfo roomInfo = new RoomInfo();
-            roomInfo.setRoomNumber(roomConditionChanged.getRoomNumber());
-            roomInfo.setRoomName(roomConditionChanged.getRoomName());
-            roomInfo.setRoomStatus(roomConditionChanged.getRoomStatus());
-            roomInfo.setRoomPrice(roomConditionChanged.getRoomPrice());
-            roomInfo.setRoomQty(roomConditionChanged.getRoomQty());
-            roomInfo.setRoomStatus(roomConditionChanged.getRoomStatus());
-            roomInfo.setRoomType(roomConditionChanged.getRoomType());
-
-            roomInfoRepository.save(roomInfo);
-        }
-    }
-
-    @StreamListener(KafkaProcessor.INPUT)
-    public void wheneverSave_CheckOuted(@Payload CheckedOut checkedOut){
-        if(checkedOut.isMe()){
-            System.out.println("##### listener 체크아웃 정보저장 : " + checkedOut.toJson());
-            RoomInfo roomInfo = new RoomInfo();
-            roomInfo.setReserveNo(checkedOut.getReserveNo());
-            roomInfo.setCustomerName(checkedOut.getCustomerName());
-            roomInfo.setRoomNo(checkedOut.getRoomNo());
-            roomInfo.setCustomerId(checkedOut.getCustomerId());
-            roomInfo.setCustomerName(checkedOut.getCustomerName());
-            roomInfo.setReservationStatus(checkedOut.getReserveStatus());
-
-            roomInfoRepository.save(roomInfo);
-        }
-    }
-
-    @StreamListener(KafkaProcessor.INPUT)
-    public void wheneverSave_PaymentCompleted(@Payload PaymentCompleted paymentCompleted){
-        if(paymentCompleted.isMe()){
+    public void wheneverSave_PromotionSaved(@Payload PromotionSaved promotionSaved) {
+        if (promotionSaved.isMe()) {
             // external message send
-            System.out.println("##### listener 결제 정보저장 : " + paymentCompleted.toJson());
+            System.out.println("##### listener Promotion 저장 : " + promotionSaved.toJson());
             RoomInfo roomInfo = new RoomInfo();
-            roomInfo.setReservationNumber(paymentCompleted.getReservationNumber());
-            roomInfo.setPaymentId(paymentCompleted.getPaymentId());
-            roomInfo.setPaymentPrice(paymentCompleted.getPaymentPrice());
-            roomInfo.setReservationStatus(paymentCompleted.getReservationStatus());
-
-            roomInfoRepository.save(roomInfo);
-        }
-    }
-
-    @StreamListener(KafkaProcessor.INPUT)
-    public void wheneverSave_Reserved(@Payload Reserved reserved) {
-        if (reserved.isMe()) {
-            // external message send
-            System.out.println("##### listener 예약정보 저장 : " + reserved.toJson());
-            RoomInfo roomInfo = new RoomInfo();
-            roomInfo.setReserveNo(reserved.getReserveNo());
-            roomInfo.setCustomerName(reserved.getCustomerName());
-            roomInfo.setCustomerId(reserved.getCustomerId());
-            roomInfo.setReservationStatus(reserved.getReserveStatus());
-            roomInfo.setRoomNo(reserved.getRoomNo());
-            roomInfo.setReservePrice(reserved.getReservePrice());
+            roomInfo.setPaymentId(promotionSaved.getPaymentId());
+            roomInfo.setPaymentPrice(promotionSaved.getPaymentPrice());
+            roomInfo.setPaymentStatus(promotionSaved.getPaymentStatus());
+            roomInfo.setService(promotionSaved.getService());
+            roomInfo.setCouponId(promotionSaved.getCouponId());
+            roomInfo.setPoint(promotionSaved.getPoint());
+            roomInfo.setReserveStatus(promotionSaved.getReserveStatus());
 
             roomInfoRepository.save(roomInfo);
         }
